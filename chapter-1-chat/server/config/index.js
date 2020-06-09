@@ -1,5 +1,9 @@
-var debug = require("debug")("chapter-1-chat:server");
+import env from "./env.js";
 
-import env from "./env";
+const currentEnv = process.env["NODE_ENV"] || "development";
+console.log(`Current environment is ${currentEnv}`);
 
-debug(`Current environment is ${process.env["NODE_ENV"] || "development"}`);
+export default {
+  currentEnv,
+  ...env(currentEnv)
+};
