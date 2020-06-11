@@ -1,9 +1,12 @@
 import express from 'express';
+// controllers
+import users from '../controllers/user.js';
+
 const router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router
+  .get('/', users.onGetAllUsers)
+  .get('/:id', users.onGetUser)
+  .post('/', users.onCreateUser)
 
 export default router;

@@ -27,7 +27,10 @@ const chatMessageSchema = new Schema(
     },
     room_id: Array,
     message: Schema.Types.Mixed,
-    type: String,
+    type: {
+      type: String,
+      default: () => MESSAGE_TYPES.TYPE_TEXT,
+    },
     posted_by_user: String,
     read_by_recipients: [readByRecipientSchema],
   },

@@ -12,7 +12,10 @@ const chatRoomSchema = new Schema(
       default: () => uuidv4.replace(/-g/, ""),
     },
     users: Array,
-    type: String,
+    type: {
+      type: String,
+      default: () => CHAT_ROOM_TYPES.USER_TO_USER,
+    },
     chat_initiator: String,
   },
   {
