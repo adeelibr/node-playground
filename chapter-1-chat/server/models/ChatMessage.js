@@ -1,15 +1,15 @@
 import { Schema, model } from "mongoose";
 import { v4 as uuidv4 } from "uuid";
 
-export const MESSAGE_TYPES = {
+const MESSAGE_TYPES = {
   TYPE_TEXT: "text",
 };
 
 const readByRecipientSchema = new Schema(
   {
     _id: false,
-    read_by_user: String,
-    read_at: {
+    readByUserId: String,
+    readAt: {
       type: Date,
       default: Date.now(),
     },
@@ -25,20 +25,17 @@ const chatMessageSchema = new Schema(
       type: String,
       default: () => uuidv4.replace(/-g/, ""),
     },
-    room_id: Array,
+    chatRoomId: Array,
     message: Schema.Types.Mixed,
     type: {
       type: String,
       default: () => MESSAGE_TYPES.TYPE_TEXT,
     },
-    posted_by_user: String,
+    postedByUser: String,
     read_by_recipients: [readByRecipientSchema],
   },
   {
-    timestamps: {
-      createdAt: "created_at",
-      updatedAt: "updated_at",
-    },
+    timestamps: true,
     collection: "ChatMessages",
   }
 );

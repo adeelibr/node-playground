@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 import { v4 as uuidv4 } from "uuid";
 
-export const CHAT_ROOM_TYPES = {
+const CHAT_ROOM_TYPES = {
   USER_TO_USER: "user-to-user",
 };
 
@@ -16,13 +16,10 @@ const chatRoomSchema = new Schema(
       type: String,
       default: () => CHAT_ROOM_TYPES.USER_TO_USER,
     },
-    chat_initiator: String,
+    chatInitiator: String,
   },
   {
-    timestamps: {
-      createdAt: "created_at",
-      updatedAt: "updated_at",
-    },
+    timestamps: true,
     collection: "ChatRooms",
   }
 );
