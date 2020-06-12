@@ -102,6 +102,13 @@ const validate = ({ payload = undefined, checks = undefined }) => {
                 return;
               }
             }
+            if (!options.empty) {
+              if (payload[checkKey].length === 0) {
+                isFormValid = false;
+                errors[checkKey] = `${checkKey} can not be empty`
+                return;
+              }
+            }
           }
           break;
         }

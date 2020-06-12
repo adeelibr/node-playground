@@ -12,6 +12,7 @@
     "cors": "^2.8.5",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "~1.9.1",
     "socket.io": "^2.3.0",
     "uuid": "^8.1.0"

@@ -8,9 +8,6 @@ export default {
       const users = await UserModel.getUsers();
       return res.status(200).json({ success: true, users });
     } catch (error) {
-      if (error.error) {
-        return res.status(400).json({ success: false, error: error.error })
-      }
       return res.status(500).json({ success: false, error: error })
     }
   },
@@ -19,9 +16,6 @@ export default {
       const user = await UserModel.getUserById(req.params.id);
       return res.status(200).json({ success: true, user });
     } catch (error) {
-      if (error.error) {
-        return res.status(400).json({ success: false, error: error.error })
-      }
       return res.status(500).json({ success: false, error: error })
     }
   },
@@ -41,13 +35,10 @@ export default {
       const user = await UserModel.createUser(firstName, lastName, type);
       return res.status(200).json({ success: true, user });
     } catch (error) {
-      if (error.error) {
-        return res.status(400).json({ success: false, error: error.error })
-      }
       return res.status(500).json({ success: false, error: error })
     }
   },
-  onGetUsersById: async (req, res) => {
+  onGetUsersByIds: async (req, res) => {
     try {
       const validation = makeValidation(types => ({
         payload: req.body,
@@ -60,9 +51,6 @@ export default {
       const user = await UserModel.getUserByIds(req.body.userIds);
       return res.status(200).json({ success: true, user });
     } catch (error) {
-      if (error.error) {
-        return res.status(400).json({ success: false, error: error.error })
-      }
       return res.status(500).json({ success: false, error: error })
     }
   },
@@ -74,9 +62,6 @@ export default {
         message: `Deleted a count of ${user.deletedCount} user.` 
       });
     } catch (error) {
-      if (error.error) {
-        return res.status(400).json({ success: false, error: error.error })
-      }
       return res.status(500).json({ success: false, error: error })
     }
   },

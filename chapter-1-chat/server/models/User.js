@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-    collection: "Users",
+    collection: "users",
   }
 );
 
@@ -88,4 +88,4 @@ userSchema.statics.deleteByUserById = async function (id) {
   }
 }
 
-export default mongoose.model("Users", userSchema);
+export default mongoose.model("User", userSchema);

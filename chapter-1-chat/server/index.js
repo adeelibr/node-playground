@@ -12,7 +12,8 @@ import "./config/mongo.js";
 import WebSockets from "./utils/WebSockets.js";
 // routes
 import indexRouter from "./routes/index.js";
-import usersRouter from "./routes/users.js";
+import userRouter from "./routes/user.js";
+import chatRoomRouter from "./routes/chatRoom.js";
 
 const app = express();
 
@@ -24,10 +25,10 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(path.resolve(), "../public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/users", userRouter);
+app.use("/chat-room", chatRoomRouter);
 
 /** catch 404 and forward to error handler */
 app.use(function (req, res, next) {
