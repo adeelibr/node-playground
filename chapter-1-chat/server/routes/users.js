@@ -6,7 +6,9 @@ const router = express.Router();
 
 router
   .get('/', users.onGetAllUsers)
-  .get('/:id', users.onGetUser)
+  .get('/:id', users.onGetUserById)
   .post('/', users.onCreateUser)
+  .post('/get-users', users.onGetUsersById)
+  .delete('/:id', users.onDeleteUserById)
 
 export default router;

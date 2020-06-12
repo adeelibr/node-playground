@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 import { v4 as uuidv4 } from "uuid";
 
-const USER_TYPES = {
+export const USER_TYPES = {
   CONSUMER: "consumer",
+  SUPPORT: "support",
 };
 
 const userSchema = new mongoose.Schema(
@@ -13,10 +14,7 @@ const userSchema = new mongoose.Schema(
     },
     firstName: String,
     lastName: String,
-    type: {
-      type: String,
-      default: () => USER_TYPES.CONSUMER,
-    },
+    type: String,
   },
   {
     timestamps: true,
@@ -29,9 +27,9 @@ const userSchema = new mongoose.Schema(
  * @param {String} lastName
  * @returns {Object} new user object created
  */
-userSchema.statics.createUser = async function (firstName, lastName) {
+userSchema.statics.createUser = async function (firstName, lastName, type) {
   try {
-    const user = await this.create({ firstName, lastName });
+    const user = await this.create({ firstName, lastName, type });
     return user;
   } catch (error) {
     throw error;
@@ -53,6 +51,18 @@ userSchema.statics.getUserById = async function (id) {
 }
 
 /**
+ * @return {Array} List of all users
+ */
+userSchema.statics.getUsers = async function () {
+  try {
+    const users = await this.find();
+    return users;
+  } catch (error) {
+    throw error;
+  }
+}
+
+/**
  * @param {Array} ids, string of user ids
  * @return {Array of Objects} users list
  */
@@ -60,6 +70,19 @@ userSchema.statics.getUserByIds = async function (ids) {
   try {
     const users = await this.find({ _id: { $in: ids } });
     return users;
+  } catch (error) {
+    throw error;
+  }
+}
+
+/**
+ * @param {String} id - id of user
+ * @return {Object} - details of action performed
+ */
+userSchema.statics.deleteByUserById = async function (id) {
+  try {
+    const result = await this.remove({ _id: id });
+    return result;
   } catch (error) {
     throw error;
   }
