@@ -1,8 +1,9 @@
+// utils
+import makeValidation from '@withvoid/make-validation';
+// models
 import ChatRoomModel, { CHAT_ROOM_TYPES } from '../models/ChatRoom.js';
 import ChatMessageModel from '../models/ChatMessage.js';
 import UserModel from '../models/User.js';
-// utils
-import makeValidation from '../utils/makeValidation.js';
 
 export default {
   initiate: async (req, res) => {
@@ -10,8 +11,11 @@ export default {
       const validation = makeValidation(types => ({
         payload: req.body,
         checks: {
-          userIds: { type: types.arrayOfStrings, options: { unique: true, empty: false } },
-          type: { type: types.enum, options: { enums: CHAT_ROOM_TYPES } },
+          userIds: { 
+            type: types.array, 
+            options: { unique: true, empty: false, stringOnly: true } 
+          },
+          type: { type: types.enum, options: { enum: CHAT_ROOM_TYPES } },
         }
       }));
       if (!validation.success) return res.status(400).json({ ...validation });

@@ -1,6 +1,7 @@
-import UserModel, { USER_TYPES } from '../models/User.js';
 // utils
-import makeValidation from '../utils/makeValidation.js';
+import makeValidation from '@withvoid/make-validation';
+// models
+import UserModel, { USER_TYPES } from '../models/User.js';
 
 export default {
   onGetAllUsers: async (req, res) => {
@@ -26,7 +27,7 @@ export default {
         checks: {
           firstName: { type: types.string },
           lastName: { type: types.string },
-          type: { type: types.enum, options: { enums: USER_TYPES } },
+          type: { type: types.enum, options: { enum: USER_TYPES } },
         }
       }));
       if (!validation.success) return res.status(400).json({ ...validation });
