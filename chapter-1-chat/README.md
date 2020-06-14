@@ -1,19 +1,37 @@
+### Prerequisites
+
+- Installing mongodb [installation guide](chapter-1-chat/guidelines/installing-mongo.md)
+- Connecting to a database
+- Installing a Mongo DB client like robo3t to view collections
+
 ### Description
 
 This project will do the following
 
-- Creating users
-- JWT Authentication for users
+- Create an express server
+- Doing API validations
+- Creating users API + Database
+  - Create a user
+  - Get a user by id
+  - Get all users
+  - Delete a user by id
+- Understadning middleware
+  - JWT authentication (deconde/encode)
+  - Login middleware
+- Web socket class
+  - When an event `disconnect`
+  - When a user wants to maintain it's identity
+  - When a user joins a chat room
+  - When a user mutes a chat room
 - Chat rooms
-  - Get recent converstation like facebook messenger that shows last message of each each with user(s)
-  - Creating chat rooms
-  - Get recent conversation for a chat room
-  - Get a chat room by id
-  - Mark conversation as read
-  - Delete chat room & all it's messages
-  - Delete message by chat room id
-- Chat messages
-  - Post a message in a chat room
-  - Post an image in a chat room
-- Notes
-  - Create a note against a chat message
+  - Understanding chatroom & chatmessage database model
+  - API
+    - Initiate a chat between users
+    - Create a message in chat room
+    - See conversation for a chat room by it's id
+    - Mark an entire conversation as read (seen feature similar to whatsapp)
+    - Get recent conversation from all chats (similar to facebook messenger page)
+- Bonus
+  - API
+    - Delete a chat room by id along with all it's associated messages
+    - Delete a message by id
