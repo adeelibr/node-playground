@@ -14,8 +14,14 @@
 
 Youtube links:
 
-## -
+## Tutorial
 
 Tutorial Article:
 
--
+## Useful links
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+- Postman tutorial https://www.youtube.com/watch?v=FjgYtQK_zLE
