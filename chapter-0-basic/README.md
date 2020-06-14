@@ -25,3 +25,5 @@ Tutorial Article:
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
 - Postman tutorial https://www.youtube.com/watch?v=FjgYtQK_zLE
+- What is middleware in ExpressJS https://expressjs.com/en/guide/using-middleware.html
+- Why we have Bearer in our authorization token [link here](https://stackoverflow.com/questions/25838183/what-is-the-oauth-2-0-bearer-token-exactly/25843058#:~:text=The%20Bearer%20Token%20is%20created,token%20used%20with%20OAuth%202.0.&text=You%20use%20the%20bearer%20token%20to%20get%20a%20new%20Access%20token.)
