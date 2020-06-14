@@ -15,9 +15,9 @@ This project will do the following
   - Get a user by id
   - Get all users
   - Delete a user by id
-- Understadning middleware
-  - JWT authentication (deconde/encode)
-  - Login middleware
+- Understanding middle-ware
+  - JWT authentication (decnde/encode)
+  - Login middle-ware
 - Web socket class
   - When an event `disconnect`
   - When a user wants to maintain it's identity
