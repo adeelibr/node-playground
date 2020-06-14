@@ -2,6 +2,7 @@ const makeValidation = require('@withvoid/make-validation')
 
 const userController = {
   getAll: (req, res, next) => {
+    console.log(req.information)
     return res.status(200).json({ success: true, message: 'Job well done' })
   },
   getById: (req, res, next) => {
