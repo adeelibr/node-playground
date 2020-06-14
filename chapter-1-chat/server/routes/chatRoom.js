@@ -7,13 +7,10 @@ import { decode } from '../middlewares/jwt.js'
 const router = express.Router();
 
 router
-  .get('/recent-conversation', decode, chatRoom.getRecentConversation)
-  .get('/:roomId', decode, chatRoom.getConversationByRoomId)
-  .post('/initiate', decode, chatRoom.initiate)
-  .post('/:roomId/message', decode, chatRoom.postMessage)
-  .put('/:roomId/mark-read', decode, chatRoom.markConversationReadByRoomId)
-  .delete('/:roomId', decode, chatRoom.deleteRoomById)
-  .delete('/all/message/:messageId', decode, chatRoom.deleteMessageById)
-
+  .get('/', chatRoom.getRecentConversation)
+  .get('/:roomId', chatRoom.getConversationByRoomId)
+  .post('/initiate', chatRoom.initiate)
+  .post('/:roomId/message', chatRoom.postMessage)
+  .put('/:roomId/mark-read', chatRoom.markConversationReadByRoomId)
 
 export default router;

@@ -7,8 +7,6 @@ import { encode } from '../middlewares/jwt.js';
 const router = express.Router();
 
 router
-  .get('/', users.onGetAllUsers)
-  .post('/', users.onCreateUser)
   .post('/login/:userId', encode, (req, res, next) => {
     return res
       .status(200)

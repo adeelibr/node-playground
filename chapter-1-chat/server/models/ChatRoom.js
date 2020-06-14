@@ -84,16 +84,4 @@ chatRoomSchema.statics.initiateChat = async function (userIds, type, chatInitiat
   }
 }
 
-/**
- * @param {String} chatRoomId - chat room id
- */
-chatRoomSchema.statics.deleteChatById = async function (chatRoomId) {
-  try {
-    const room = this.remove({ _id: chatRoomId });
-    return room;
-  } catch (error) {
-    throw error;
-  }
-}
-
 export default mongoose.model("ChatRoom", chatRoomSchema);

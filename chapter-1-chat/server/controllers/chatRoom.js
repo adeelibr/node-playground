@@ -47,25 +47,6 @@ export default {
       return res.status(500).json({ success: false, error: error })
     }
   },
-  deleteRoomById: async (req, res) => {
-    try {
-      const { roomId } = req.params;
-      await ChatRoomModel.deleteChatById(roomId);
-      await ChatMessageModel.deleteMessagesByChatRoomId(roomId);
-      return res.status(200).json({ success: true, message: "Deleted chat room along with all of it's messages" });
-    } catch (error) {
-      return res.status(500).json({ success: false, error: error })
-    }
-  },
-  deleteMessageById: async (req, res) => {
-    try {
-      const { messageId } = req.params;
-      await ChatMessageModel.deleteMessagesById(messageId);
-      return res.status(200).json({ success: true, message: "Deleted message" });
-    } catch (error) {
-      return res.status(500).json({ success: false, error: error })
-    }
-  },
   getRecentConversation: async (req, res) => {
     try {
       const currentLoggedUser = req.userId;

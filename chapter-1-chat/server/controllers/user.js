@@ -38,22 +38,6 @@ export default {
       return res.status(500).json({ success: false, error: error })
     }
   },
-  onGetUsersByIds: async (req, res) => {
-    try {
-      const validation = makeValidation(types => ({
-        payload: req.body,
-        checks: {
-          userIds: { type: types.arrayOfStrings, options: { unique: true } },
-        },
-      }));
-      if (!validation.success) return res.status(400).json({ ...validation });
-
-      const user = await UserModel.getUserByIds(req.body.userIds);
-      return res.status(200).json({ success: true, user });
-    } catch (error) {
-      return res.status(500).json({ success: false, error: error })
-    }
-  },
   onDeleteUserById: async (req, res) => {
     try {
       const user = await UserModel.deleteByUserById(req.params.id);

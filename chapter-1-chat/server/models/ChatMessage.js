@@ -169,30 +169,6 @@ chatMessageSchema.statics.markMessageRead = async function (chatRoomId, currentU
 }
 
 /**
- * @param {String} chatRoomId - chat room id
- */
-chatMessageSchema.statics.deleteMessagesByChatRoomId = async function (chatRoomId) {
-  try {
-    const result = this.remove({ chatRoomId });
-    return result;
-  } catch (error) {
-    throw error;
-  }
-}
-
-/**
- * @param {String} messageId - message id
- */
-chatMessageSchema.statics.deleteMessagesById = async function (messageId) {
-  try {
-    const result = this.remove({ _id: messageId });
-    return result;
-  } catch (error) {
-    throw error;
-  }
-}
-
-/**
  * @param {Array} chatRoomIds - chat room ids
  * @param {{ page, limit }} options - pagination options
  * @param {String} currentUserOnlineId - user id
