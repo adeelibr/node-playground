@@ -1,9 +1,6 @@
-import path from "path";
 import http from "http";
 import express from "express";
-import createError from "http-errors";
 import logger from "morgan";
-import cookieParser from "cookie-parser";
 import cors from "cors";
 import socketio from "socket.io";
 // mongo connection
@@ -27,7 +24,6 @@ app.set("port", port);
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 
 app.use("/", indexRouter);
 app.use("/users", userRouter);
@@ -35,8 +31,11 @@ app.use("/room", decode, chatRoomRouter);
 app.use("/delete", deleteRouter);
 
 /** catch 404 and forward to error handler */
-app.use(function (req, res, next) {
-  next(createError(404, 'API endpoint doesnt exist'));
+app.use('*', (req, res) => {
+  return res.status(404).json({
+    success: false,
+    message: 'API endpoint doesnt exist'
+  })
 });
 
 /** Create HTTP server. */
