@@ -1,9 +1,8 @@
-import env from "./env.js";
+const config = {
+  db: {
+    url: 'localhost:27017',
+    name: 'chatdb'
+  }
+}
 
-const currentEnv = process.env["NODE_ENV"] || "development";
-console.log(`Current environment is ${currentEnv}`);
-
-export default {
-  currentEnv,
-  ...env(currentEnv)
-};
+export default config
