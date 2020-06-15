@@ -13,7 +13,6 @@ export const encode = async (req, res, next) => {
       userType: user.type,
     };
     const authToken = jwt.sign(payload, SECRET_KEY);
-    console.log('Auth', authToken);
     req.authToken = authToken;
     next();
   } catch (error) {
