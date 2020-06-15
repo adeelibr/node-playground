@@ -31,7 +31,6 @@ export const decode = (req, res, next) => {
     req.userType = decoded.type;
     return next();
   } catch (error) {
-
     return res.status(401).json({ success: false, message: error.message });
   }
 }
