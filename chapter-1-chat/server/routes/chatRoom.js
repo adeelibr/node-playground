@@ -1,8 +1,6 @@
 import express from 'express';
 // controllers
 import chatRoom from '../controllers/chatRoom.js';
-// middlewares
-import { decode } from '../middlewares/jwt.js'
 
 const router = express.Router();
 
