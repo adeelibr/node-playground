@@ -25,7 +25,7 @@ class WebSockets {
 
   subscribeOtherUser(room, otherUserId) {
     let userSockets = this.users.filter((user) => user.userId === otherUserId);
-    for (let i = 0; i < userSockets.lengthl; i++) {
+    for (let i = 0; i < userSockets.length; i++) {
       let socket = global.io.sockets.connected(userSockets[i].socketId);
       if (socket) {
         socket.join(room);
