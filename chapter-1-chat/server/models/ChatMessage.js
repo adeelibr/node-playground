@@ -236,7 +236,7 @@ chatMessageSchema.statics.getRecentConversation = async function (chatRoomIds, o
       {
         $group: {
           _id: '$roomInfo._id',
-          messageId: { $last: '$_id' },
+          messageId: { $last: '$messageId' },
           chatRoomId: { $last: '$chatRoomId' },
           message: { $last: '$message' },
           type: { $last: '$type' },
