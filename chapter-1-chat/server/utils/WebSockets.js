@@ -24,15 +24,15 @@ class WebSockets {
   }
 
   subscribeOtherUser(room, otherUserId) {
-    let userSockets = this.users.filter((user) => user.userId === otherUserId);
-    for (let i = 0; i < userSockets.length; i++) {
-      let socket = global.io.sockets.connected(userSockets[i].socketId);
-      if (socket) {
-        socket.join(room);
-      } else {
-        console.log(`${socket.id} does not exist`);
+    const userSockets = this.users.filter(
+      (user) => user.userId === otherUserId
+    );
+    userSockets.map((userInfo) => {
+      const socketConn = global.io.sockets.connected(userInfo.socketId);
+      if (socketConn) {
+        socketConn.join(room);
       }
-    }
+    });
   }
 }
 
