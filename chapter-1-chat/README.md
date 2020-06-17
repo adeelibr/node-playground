@@ -1,3 +1,5 @@
+Details here https://www.freecodecamp.org/news/create-a-professional-node-express/
+
 ### Prerequisites
 
 - Installing mongodb [installation guide](chapter-1-chat/guidelines/installing-mongo.md)
@@ -38,11 +40,11 @@ This project will do the following
 
 ### Learning
 
-Youtube links:
+Youtube links: https://www.youtube.com/playlist?list=PLH6pGK5zEj9mO-yS9FjQ6xhJXUagoEgOh
 
 ## Tutorial
 
-Tutorial Article:
+Tutorial Article: https://www.freecodecamp.org/news/create-a-professional-node-express/
 
 ## Useful links
 
