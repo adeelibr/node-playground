@@ -178,6 +178,19 @@ chatMessageSchema.statics.getRecentConversation = async function (chatRoomIds, o
     return this.aggregate([
       { $match: { chatRoomId: { $in: chatRoomIds } } },
       {
+        $project: {
+          isUnread: { 
+            $cond: [{$in: [currentUserOnlineId, "$readByRecipients.readByUserId"]}, 0, 1]
+          },
+          chatRoomId: 1,
+          message: 1,
+          type: 1,
+          postedByUser: 1,
+          createdAt: 1,
+          readByRecipients: 1,
+        },
+      },
+      {
         $group: {
           _id: '$chatRoomId',
           messageId: { $last: '$_id' },
@@ -187,6 +200,7 @@ chatMessageSchema.statics.getRecentConversation = async function (chatRoomIds, o
           postedByUser: { $last: '$postedByUser' },
           createdAt: { $last: '$createdAt' },
           readByRecipients: { $last: '$readByRecipients' },
+          unreadMessages: { $sum: '$isUnread' },
         }
       },
       { $sort: { createdAt: -1 } },
@@ -244,6 +258,7 @@ chatMessageSchema.statics.getRecentConversation = async function (chatRoomIds, o
           readByRecipients: { $addToSet: '$readByRecipients' },
           roomInfo: { $addToSet: '$roomInfo.userProfile' },
           createdAt: { $last: '$createdAt' },
+          unreadMessages: { $last: '$unreadMessages' },
         },
       },
       // apply pagination
