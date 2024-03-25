@@ -10,7 +10,7 @@
   "dependencies": {
     "@withvoid/make-validation": "1.0.5",
     "cors": "2.8.5",
-    "express": "4.16.1",
+    "express": "4.19.2",
     "jsonwebtoken": "8.5.1",
     "mongoose": "5.9.18",
     "morgan": "1.9.1",
